@@ -160,7 +160,7 @@ fit.inla <- function(parameter, inputs, x, mesh,
         INLA::inla(as.formula(formula), data = data,
                    family = family, control.predictor = list(A = ctr.pred,link = 1),
                    control.inla = list(h = h.value),
-                   control.compute = list(config = T))
+                   control.compute = list(config = T), verbose = TRUE)
     })
     fitted <- (Result$summary.linear.predictor[1:length(x),"mean"]+mean(scale*x))/scale
     fit <- Result
